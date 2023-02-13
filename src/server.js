@@ -11,8 +11,7 @@ const init = async () => {
         origin: ['*'],
       },
     },
-
-  });
+});
 
   server.route(routes);
 
