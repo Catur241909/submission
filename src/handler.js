@@ -2,7 +2,7 @@ const { nanoid } = require('nanoid');
 const books = require('./books');
 
 //API dapat menyimpan buku
-const addBooksHandler = (request, h) => {
+const simpanBuku = (request, h) => {
   const {
     name, year, author, summary, publisher, pageCount,
     readPage, reading
@@ -71,7 +71,7 @@ const addBooksHandler = (request, h) => {
 };
 
 //API dapat menampilkan seluruh buku
-const getAllBooksHandler = (request, h) => {
+const TampilkanSemuaBuku = (request, h) => {
   const { name, reading, finished } = request.query;
   if (name !== undefined) {
     const BooksName = books.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
@@ -139,7 +139,7 @@ const getAllBooksHandler = (request, h) => {
   return response;
 };
 //API dapat menampilkan detail buku
-const getBooksByIdHandler = (request, h) => {
+const TampilkanSesuaiID = (request, h) => {
   const { id } = request.params;
   const book = books.filter((n) => n.id === id)[0];
 
@@ -160,7 +160,7 @@ const getBooksByIdHandler = (request, h) => {
   return response;
 };
 //API dapat mengubah data buku
-const  editBooksByIdHandler = (request, h) => {
+const  revisiBuku = (request, h) => {
   const { id } = request.params;
 
   const {
@@ -217,7 +217,7 @@ const  editBooksByIdHandler = (request, h) => {
   return response;
 }
 //API dapat menghapus buku
-const deleteBooksByIdHandler = (request, h) => {
+const HapusBuku = (request, h) => {
   const { id } = request.params;
 
   const index = books.findIndex((book) => book.id === id);
@@ -241,9 +241,9 @@ const deleteBooksByIdHandler = (request, h) => {
 };
 
 module.exports = {
-  addBooksHandler,
-  getAllBooksHandler,
-  getBooksByIdHandler,
-  editBooksByIdHandler,
-  deleteBooksByIdHandler,
+  simpanBuku,
+  TampilkanSemuaBuku,
+  TampilkanSesuaiID,
+  revisiBuku,
+  HapusBuku,
 };

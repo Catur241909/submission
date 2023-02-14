@@ -1,31 +1,31 @@
-const { addBooksHandler, getAllBooksHandler, getBooksByIdHandler, 
-    editBooksByIdHandler, deleteBooksByIdHandler } = require('./handler');
+const { simpanBuku, TampilkanSemuaBuku, TampilkanSesuaiID, 
+    revisiBuku, HapusBuku  } = require('./handler');
   
   const routes = [
     {
       method: 'POST',
       path: '/books',
-      handler: addBooksHandler,
+      handler: simpanBuku,
     },
     {
       method: 'GET',
       path: '/books',
-      handler: getAllBooksHandler,
+      handler: TampilkanSemuaBuku,
     },
     {
       method: 'GET',
       path: '/books/{id}',
-      handler: getBooksByIdHandler,
+      handler: TampilkanSesuaiID,
     },
     {
       method: 'PUT',
       path: '/books/{id}',
-      handler: editBooksByIdHandler,
+      handler: revisiBuku,
     },
     {
       method: 'DELETE',
       path: '/books/{id}',
-      handler: deleteBooksByIdHandler,
+      handler: HapusBuku,
     },
     
   ];
